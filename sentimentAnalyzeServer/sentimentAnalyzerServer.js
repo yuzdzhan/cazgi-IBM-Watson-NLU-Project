@@ -83,10 +83,11 @@ app.get("/url/sentiment", (req,res) => {
         naturalLanguageUnderstanding.analyze(analyzeParams)
         .then(analysisResults => {
             //Retrieve the sentiment and return it as a formatted string
-
+console.log(analysisResults);
             return res.send(analysisResults.result.keywords[0].sentiment,null,2);
         })
         .catch(err => {
+            console.log(err);
             return res.send("Could not do desired operation "+err);
         });
 });
